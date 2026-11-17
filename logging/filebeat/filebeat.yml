@@ -1,0 +1,10 @@
+# Lab 3: Monitoring, Logging & DevSecOps - Filebeat Configuration
+# Student: Kabir | Roll No: 2301730183 | Email: kabir000029@gmail.com
+filebeat.inputs:
+  - type: container
+    paths: ["/var/lib/docker/containers/*/*.log"]
+    processors:
+      - add_docker_metadata: ~
+
+output.logstash:
+  hosts: ["logstash:5044"]
